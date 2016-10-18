@@ -1,0 +1,20 @@
+java -classpath scripts/../lib/jasypt-spring31-1.9.2.jar:scripts/../lib/jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input=demoValue password=demoPassword algorithm=PBEWithMD5AndTripleDES
+
+----ENVIRONMENT-----------------
+
+Runtime: Oracle Corporation OpenJDK 64-Bit Server VM 25.91-b14 
+
+
+
+----ARGUMENTS-------------------
+
+algorithm: PBEWithMD5AndTripleDES
+input: demoValue
+password: demoPassword
+
+
+
+----OUTPUT----------------------
+
+E6Aku22QWajcBpkvhMKP1Iw6uv2AyFo6
+

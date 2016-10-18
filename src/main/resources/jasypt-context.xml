@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2014 Cloudvisory LLC. All rights reserved.
+  -->
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+       xmlns:encryption="http://www.jasypt.org/schema/encryption"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.jasypt.org/schema/encryption
+                           http://www.jasypt.org/schema/encryption/jasypt-spring31-encryption-1.xsd
+    ">
+
+    <!-- TODO(SPD): Dynamic/externally configurable list of property files -->
+    <encryption:strong-text-encryptor id="appEncryptorBean" password="demoValue"/>
+    <!-- Set order fairly high, but low enough that it can still be overridden if needed -->
+    <!-- Explicitly specify file: in location, otherwise classpath is checked and not found -->
+	<encryption:encryptable-property-placeholder order="100"
+		encryptor="appEncryptorBean" ignore-resource-not-found="true" ignore-unresolvable="true"
+		location="application.properties,file:application.properties,file:config/application.properties, classpath:/application.properties,file:#{ systemEnvironment['CONFIG_DIR'] ?: 'config' }/batch-#{ systemEnvironment['ENVIRONMENT'] ?: 'dev' }.properties" 
+		/>
+	<encryption:string-encryptor id="jasyptStringEncryptor" password="demoValue"/>
+ </beans>
