@@ -22,6 +22,8 @@ import org.springframework.context.annotation.PropertySource;
 // Per https://github.com/ulisesbocchio/jasypt-spring-boot the following will enable support
 // for Encyrpted properties.
 @EnableAutoConfiguration
+//For additional issues, uncomment this and just use compile("com.github.ulisesbocchio:jasypt-spring-boot:1.8")
+//@EnableEncryptableProperties
 public class DemoMain {
   
   /**

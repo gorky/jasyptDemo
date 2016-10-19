@@ -32,6 +32,12 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:${version_spring_boot}")
     compile("org.springframework.boot:spring-boot-starter-actuator:${version_spring_boot}")
     compile("com.github.ulisesbocchio:jasypt-spring-boot-starter:1.8")
+    //For additional issues with the Factory overriding the definition of jasyptStringEncryptor, 
+    //just use the following. Note that the issue with the overriden jasyptStringEncryptor may be
+    //exposed once the XSD Definition issue is resolved.
+    //compile("com.github.ulisesbocchio:jasypt-spring-boot:1.8")
+    
+   
 
     testCompile 'junit:junit:4.12'
 }
